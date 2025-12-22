@@ -9,10 +9,6 @@ public class projectOne {
     static int countNumbers = 0;
     static String choice;
 
-    static void count() {
-        countNumbers++;
-    }
-
     public static void main(String[] args) {
 
 
@@ -31,31 +27,35 @@ public class projectOne {
             switch (choice) {
 
                 case "1":
-                    for(int i = 0; i < phoneNumbers.length; i++){
-                        if(phoneNumbers[i] == null){
-                            System.out.print("Введите номер телефона: ");
-                            String number = sc.nextLine();
-                            if(!number.trim().isEmpty()&&number.matches("[0-9]+")){
-                                phoneNumbers[i]=number.trim();
-                                count();
-                            }else{
-                                System.out.println("Некорректный ввод!");
-                                continue;
-                            }
 
-                            for(int j = 0; j < phoneNames.length; j++){
-                                if(phoneNames[i] == null){
-                                    System.out.print("Введите имя абонента: ");
-                                    phoneNames[i] = sc.nextLine().trim();
+                        if(countNumbers>=10){
+                            System.out.println("Освободите место в книге!"); break;
+                        }else{
+                            for (int i = 0; i < phoneNumbers.length; i++) {
+                                if (phoneNumbers[i] == null) {
+                                    System.out.print("Введите номер телефона: ");
+                                    String number = sc.nextLine().trim();
+                                    if (!number.isEmpty() && number.matches("[0-9]+")) {
+                                        System.out.print("Введите имя абонента: ");
+                                        String name = sc.nextLine().trim();
+
+                                        phoneNumbers[i] = number;
+                                        phoneNames[i] = name;
+                                        countNumbers++;
+                                        System.out.println("Контакт создан");
+                                        break;
+                                    } else {
+                                        System.out.println("Номер должен содержать цифры");
+                                    }
                                 }
-                            }break;
-                        }else if (countNumbers==10){
-                            System.out.println("Места в телефонной книги нет!\nОсвободите место!");break;}
-                    } break;
+                            }
+                        } break;
 
                 case "2":
-                    for(int i = 0; i < phoneNumbers.length; i++){
-                        System.out.println(String.format((i+1)+". %s - %s", phoneNames[i], phoneNumbers[i]));
+                    for(int i = 0; i < phoneNumbers.length; i++) {
+                        if (phoneNumbers[i] != null) {
+                            System.out.println(String.format((i + 1) + ". %s - %s", phoneNames[i], phoneNumbers[i]));
+                        }
                     }System.out.println("Количество абонентов: "+countNumbers); break;
 
                 case "3":
