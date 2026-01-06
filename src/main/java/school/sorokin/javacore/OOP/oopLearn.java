@@ -743,3 +743,91 @@ class main{
     }
 }
  */
+/*
+abstract class cars{
+    String marka;
+    cars(String marka){
+        this.marka=marka;
+    }
+    abstract void sound();
+    abstract void speed();
+}
+
+interface engines{
+    void engine();
+}
+interface colors{
+    void color();
+}
+
+class lada extends cars implements engines, colors{
+
+    lada(String marka){
+        super(marka);
+    }
+    @Override
+    void sound(){
+        System.out.println(marka+" sound like brb...");
+    }
+    @Override
+    void speed(){
+        System.out.println(marka+" maks speed 140km");
+    }
+    @Override
+    public void engine(){
+        System.out.println(marka+" have 2.0V engine");
+    }
+    @Override
+    public void color(){
+        System.out.println(marka+" is red");
+    }
+}
+
+class kia extends cars implements engines, colors{
+
+    kia(String marka){
+        super(marka);
+    }
+
+    @Override
+    void sound(){
+        System.out.println(marka+" sound like brbrbrrrr");
+    }
+    @Override
+    void speed(){
+        System.out.println(marka+" maks speed is 200km");
+    }
+    @Override
+    public void engine(){
+        System.out.println(marka+" have 3.0V engine");
+    }
+    @Override
+    public void color(){
+        System.out.println(marka+" is blue");
+    }
+}
+
+class road{
+    public static void main(String[] args){
+
+        cars[] cars = {
+                new lada("vesta"),
+                new kia("k5")
+        };
+
+        for(cars car : cars){
+            car.sound();
+            car.speed();
+
+            if(car instanceof kia){
+                ((kia)car).engine();
+                ((kia)car).color();
+            }
+            if(car instanceof lada){
+                ((lada)car).engine();
+                ((lada)car).color();
+            }
+        }
+    }
+}
+ */
